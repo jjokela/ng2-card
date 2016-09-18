@@ -1,0 +1,24 @@
+<h3>{{ card.first }} + {{ card.second }} = ???</h3>
+
+<article class="template animated slideInRight">
+    <h4>{{ resultText }}</h4>
+    <div>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col" *ngFor="let choice of card.answerChoices">
+
+                <button class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+      mdl-button--accent" [disabled]="!choice.enabled" (click)="onClick(choice)" [ngClass]="setClass(choice)">
+          {{choice.displayValue}}
+        </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="solved">
+        <button class="dashboard-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+        mdl-button--accent" (click)="onCreateNew()">
+            Uudestaan
+        </button>
+    </div>
+</article>
